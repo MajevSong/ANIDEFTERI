@@ -1,0 +1,6 @@
+dotenv -> özel bilgilerin tutulduğu paket
+"type": "module" -> import yönetimini kullanmamız için package.json'a yazılır
+
+sadece geliştirme sürecinde kullanacağımız paket nodemon
+npm i -D nodemon -> DevDependiciese yükler
+DevDependiciesde sadece geliştirme aşamasında kullanılan paketler yer alır
