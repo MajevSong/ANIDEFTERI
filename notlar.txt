@@ -4,3 +4,8 @@ dotenv -> özel bilgilerin tutulduğu paket
 sadece geliştirme sürecinde kullanacağımız paket nodemon
 npm i -D nodemon -> DevDependiciese yükler
 DevDependiciesde sadece geliştirme aşamasında kullanılan paketler yer alır
+
+PAKETLER
+axios paketi -> isteklerimiz üzerinde işlem yapmak için kullanacağız.
+react-bootstrap -> css paketimiz.
+react-router-dom -> sayfalar arası geçişde rota belirlememize yarar.
