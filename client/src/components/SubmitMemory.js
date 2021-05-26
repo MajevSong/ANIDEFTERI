@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import ReactFileBase64 from "react-file-base64";
 
 import { Form, Button } from "react-bootstrap";
-
-// bütün get,post,delete gibi methodları çağırıyoruz. (index.js içerisinde yer alan, axios klasörü içinde)
-import * as api from "../axios/index.js";
+import { useDispatch } from "react-redux";
+import { createMemory } from "../actions/memoryActions";
 
 // tarayıcımızın historysi oluyor aslında
 import { useHistory } from "react-router-dom";
@@ -18,6 +17,7 @@ const SubmitMemory = () => {
   });
 
   const history = useHistory();
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -25,7 +25,7 @@ const SubmitMemory = () => {
         onSubmit={(e) => {
           e.preventDefault();
           // post methodunu kullanıyoruz.
-          api.createMemory(memoryData);
+          dispatch(createMemory(memoryData));
           history.push("/");
         }}
       >

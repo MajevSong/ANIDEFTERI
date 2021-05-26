@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Spinner, Row, Col } from "react-bootstrap";
-import { fetchMemories } from "../axios/index.js";
+import { Row, Col } from "react-bootstrap";
+import { fetchMemories } from "../actions/memoryActions";
 import Memory from "../components/Memory.js";
 
+import { useDispatch, useSelector } from "react-redux";
+
 const HomeScreen = () => {
-  const [memories, setMemories] = useState([]);
+  const dispatch = useDispatch();
+  const memories = useSelector((state) => state.memories);
 
   useEffect(() => {
-    const getMemories = async () => {
-      const { data } = await fetchMemories();
-      console.log(data);
-      setMemories(data);
-    };
-    getMemories();
-  }, []);
+    if (!memories[0]) {
+      dispatch(fetchMemories());
+    }
+  }, [dispatch]);
   return (
     <>
       <h1>En güncel Anılar</h1>
-      {!memories.length ? <Spinner animation="border" /> : <h1>Memory Dolu</h1>}
+      {/* {!memories.length ? <Spinner animation="border" /> : <h1>Memory Dolu</h1>} */}
       {/* anılarımızı tek tek oluşturmak üzere burada tanımlıyoruz, belirli key üzeriden */}
       {/* ayrıca sm,md gibi sizeları kullanarak ekranı bölebiliriz */}
       <Row>

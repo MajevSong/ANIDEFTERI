@@ -4,10 +4,14 @@ import ReactFileBase64 from "react-file-base64";
 import { Form, Button } from "react-bootstrap";
 
 import { useHistory } from "react-router-dom";
+import { updateMemory } from "../actions/memoryActions";
 
-import { updateMemory, fetchMemory } from "../axios/index.js";
+import { useDispatch } from "react-redux";
+
+import { fetchMemory } from "../axios/index.js";
 
 const UpdateMemory = ({ id }) => {
+  const dispatch = useDispatch();
   const [memoryData, setMemoryData] = useState({
     title: "",
     content: "",
@@ -33,6 +37,7 @@ const UpdateMemory = ({ id }) => {
           e.preventDefault();
 
           updateMemory(id, memoryData);
+          dispatch(updateMemory(id, memoryData));
           history.push("/");
         }}
       >
