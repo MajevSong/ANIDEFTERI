@@ -1,11 +1,12 @@
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import HomeScreen from "./views/HomeScreen";
-import CreateScreen from "./views/CreateScreen";
+import HomeView from "./views/HomeView";
+import CreateView from "./views/CreateView";
 import Header from "./components/Header";
 import { Container } from "react-bootstrap";
 import Footer from "./components/Footer";
-import UpdateScreen from "./views/UpdateScreen";
+import UpdateView from "./views/UpdateView";
+import AuthView from "./views/AuthView";
 
 function App() {
   return (
@@ -13,9 +14,10 @@ function App() {
       <Header />
       <main className="py-3">
         <Container>
-          <Route path="/" component={HomeScreen} exact />
-          <Route path="/create" component={CreateScreen} />
-          <Route path="/update/:id" component={UpdateScreen} />
+          <Route path="/" component={HomeView} exact />
+          <Route path="/create" component={CreateView} />
+          <Route path="/update/:id" component={UpdateView} />
+          <Route path='/auth' component={AuthView}/>
         </Container>
       </main>
       <Footer />

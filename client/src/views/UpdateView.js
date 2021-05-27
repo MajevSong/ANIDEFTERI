@@ -5,7 +5,7 @@ import UpdateMemory from "../components/UpdateMemory";
 // bulunduğumuz bölgedeki parametreleri arayabiliyoruz
 import { useParams } from "react-router-dom";
 
-const UpdateScreen = () => {
+const UpdateView = () => {
   const { id } = useParams();
   return (
     <>
@@ -16,4 +16,4 @@ const UpdateScreen = () => {
   );
 };
 
-export default UpdateScreen;
+export default UpdateView;

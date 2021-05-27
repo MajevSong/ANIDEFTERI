@@ -3,7 +3,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import SubmitMemory from "../components/SubmitMemory";
 
-const CreateScreen = () => {
+const CreateView = () => {
   return (
     <>
       <Container>
@@ -13,4 +13,4 @@ const CreateScreen = () => {
   );
 };
 
-export default CreateScreen;
+export default CreateView;

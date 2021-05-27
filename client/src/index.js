@@ -16,6 +16,7 @@ import memoriesReducer from "./reducers/memoriesReducer";
 // sonradan kullanıcılar state de ekleyeceğiz
 const reducer = combineReducers({
   memories: memoriesReducer,
+  
 });
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));

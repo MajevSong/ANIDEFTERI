@@ -5,7 +5,7 @@ import Memory from "../components/Memory.js";
 
 import { useDispatch, useSelector } from "react-redux";
 
-const HomeScreen = () => {
+const HomeView = () => {
   const dispatch = useDispatch();
   const memories = useSelector((state) => state.memories);
 
@@ -39,4 +39,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default HomeView;
