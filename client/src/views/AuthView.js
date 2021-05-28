@@ -29,12 +29,12 @@ const AuthView = () => {
                   ></Form.Control>
                 </Form.Group>
 
-                <Button block type="submit">
-                  Giriş yap
-                </Button>
+                <div className="d-grid mt-3">
+                  <Button type="submit">Giriş Yap</Button>
+                </div>
 
                 <Form.Text as="large" className="text-center mt-2">
-                  Henüz bir hesabın yok mu?{" "}
+                  Henüz bir hesabınız yok mu?{" "}
                   <span
                     onClick={(e) => setLogin(!login)}
                     style={{ fontWeight: "bold", cursor: "pointer" }}
@@ -43,8 +43,8 @@ const AuthView = () => {
                   </span>
                 </Form.Text>
               </Form>
-              // kayıt ekranı (register)
             ) : (
+              // kayıt ekranı (register)
               <Form className="align-content-center mt-3">
                 <h1 className="text-center mb-3">Kayıt ol</h1>
 
@@ -86,9 +86,9 @@ const AuthView = () => {
                   ></Form.Control>
                 </Form.Group>
 
-                <Button block type="submit">
-                  Kayıt ol
-                </Button>
+                <div className="d-grid mt-3">
+                  <Button type="submit">Kayıt Ol</Button>
+                </div>
 
                 <Form.Text as="large" className="text-center mt-2">
                   Zaten bir hesabınız var mı?{" "}
