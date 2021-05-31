@@ -17,7 +17,7 @@ function App() {
           <Route path="/" component={HomeView} exact />
           <Route path="/create" component={CreateView} />
           <Route path="/update/:id" component={UpdateView} />
-          <Route path='/auth' component={AuthView}/>
+          <Route path="/auth" component={AuthView} />
         </Container>
       </main>
       <Footer />

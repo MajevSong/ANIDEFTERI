@@ -9,3 +9,21 @@ PAKETLER
 axios paketi -> isteklerimiz üzerinde işlem yapmak için kullanacağız.
 react-bootstrap -> css paketimiz.
 react-router-dom -> sayfalar arası geçişde rota belirlememize yarar.
+redux-thunk -> aksiyonlarımızı(action) async olarak yazabiliyoruz
+react-redux -> redux state yönetimi için gerekli (herhangi güncel bir durum olduğunda direk göstermesi için kullanılan bir paket)
+bcryptjs -> passwordları şifrelememize yarar.
+jsonwebtoken -> refreshtoken, access token gibi..
+
+
+
+
+
+Komutlar
+
+-Secret ve Refreshtoken için bu işlemleri yapacağız-
+
+Node komut satırına aşağıdaki komut yazılarak 64 bytelık hex dökümanını 
+elde edeceğiz. Bu bizim access tokenimize veya refreshtokenimize erişmek için 
+kullanacağımız anahtar olacak.
+
+--- require('crypto').randomBytes(64).toString('hex')

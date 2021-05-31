@@ -1,8 +1,26 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import Message from "../components/Message";
 
-const AuthView = () => {
+import { useDispatch, useSelector } from "react-redux";
+import { signup } from "../actions/userActions.js";
+
+const AuthView = ({ history }) => {
+  const initialFormData = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
+
+  const userState = useSelector((state) => state.user);
+  const { error } = userState;
+
+  const [form, setForm] = useState(initialFormData);
   const [login, setLogin] = useState(true);
+
+  const dispatch = useDispatch();
   return (
     <>
       <Container>
@@ -12,7 +30,6 @@ const AuthView = () => {
             {login ? (
               <Form className="align-content-center mt-3">
                 <h1 className="text-center mb-3">Giriş yap</h1>
-
                 <Form.Group>
                   <Form.Label>Email</Form.Label>
                   <Form.Control
@@ -33,7 +50,7 @@ const AuthView = () => {
                   <Button type="submit">Giriş Yap</Button>
                 </div>
 
-                <Form.Text as="large" className="text-center mt-2">
+                <Form.Text className="text-center mt-2">
                   Henüz bir hesabınız yok mu?{" "}
                   <span
                     onClick={(e) => setLogin(!login)}
@@ -45,20 +62,36 @@ const AuthView = () => {
               </Form>
             ) : (
               // kayıt ekranı (register)
-              <Form className="align-content-center mt-3">
+              <Form
+                onSubmit={(e) => {
+                  e.preventDefault();
+
+                  if (!login) {
+                    dispatch(signup(form, history));
+                  }
+                }}
+                className="align-content-center mt-3"
+              >
                 <h1 className="text-center mb-3">Kayıt ol</h1>
+                {error && <Message>{error}</Message>}
 
                 <Form.Group style={{ display: "flex" }}>
                   <Form.Control
                     type="text"
-                    placeholder="İlk adınız"
+                    placeholder="First Name"
                     className="mr-2"
+                    onChange={(e) =>
+                      setForm({ ...form, firstName: e.target.value })
+                    }
                   ></Form.Control>
 
                   <Form.Control
                     type="text"
-                    placeholder="Soy adınız"
+                    placeholder="Last Name"
                     className="ml-2"
+                    onChange={(e) =>
+                      setForm({ ...form, lastName: e.target.value })
+                    }
                   ></Form.Control>
                 </Form.Group>
 
@@ -67,6 +100,9 @@ const AuthView = () => {
                   <Form.Control
                     type="email"
                     placeholder="Email adresinizi girin"
+                    onChange={(e) =>
+                      setForm({ ...form, email: e.target.value })
+                    }
                   ></Form.Control>
                 </Form.Group>
 
@@ -75,6 +111,9 @@ const AuthView = () => {
                   <Form.Control
                     type="password"
                     placeholder="Şifrenizi girin"
+                    onChange={(e) =>
+                      setForm({ ...form, password: e.target.value })
+                    }
                   ></Form.Control>
                 </Form.Group>
 
@@ -83,6 +122,9 @@ const AuthView = () => {
                   <Form.Control
                     type="password"
                     placeholder="Şifrenizi doğrulayın"
+                    onChange={(e) =>
+                      setForm({ ...form, confirmPassword: e.target.value })
+                    }
                   ></Form.Control>
                 </Form.Group>
 
@@ -90,7 +132,7 @@ const AuthView = () => {
                   <Button type="submit">Kayıt Ol</Button>
                 </div>
 
-                <Form.Text as="large" className="text-center mt-2">
+                <Form.Text className="text-center mt-2">
                   Zaten bir hesabınız var mı?{" "}
                   <span
                     onClick={(e) => setLogin(!false)}

@@ -5,7 +5,7 @@ import {
   DELETE,
 } from "../constants/actionsConstants";
 
-const ToDoActions = (memories = [], action) => {
+const memoriesActions = (memories = [], action) => {
   switch (action.type) {
     case FETCH_ALL:
       return action.payload;
@@ -29,4 +29,4 @@ const ToDoActions = (memories = [], action) => {
   }
 };
 
-export default ToDoActions;
+export default memoriesActions;

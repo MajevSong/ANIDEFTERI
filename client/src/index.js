@@ -11,12 +11,13 @@ import thunk from "redux-thunk";
 import "./bootstrap.min.css";
 
 import memoriesReducer from "./reducers/memoriesReducer";
+import usersReducer from "./reducers/usersReducer";
 
 // şuan tek bir state imiz var o da memories
 // sonradan kullanıcılar state de ekleyeceğiz
 const reducer = combineReducers({
   memories: memoriesReducer,
-  
+  user: usersReducer,
 });
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
