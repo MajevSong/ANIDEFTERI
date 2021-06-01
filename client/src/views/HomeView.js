@@ -16,7 +16,8 @@ const HomeView = () => {
   }, [dispatch]);
   return (
     <>
-      <h1>En güncel Anılar</h1>
+      <h1 class="text-center">En güncel Anılar</h1>
+
       {/* {!memories.length ? <Spinner animation="border" /> : <h1>Memory Dolu</h1>} */}
       {/* anılarımızı tek tek oluşturmak üzere burada tanımlıyoruz, belirli key üzeriden */}
       {/* ayrıca sm,md gibi sizeları kullanarak ekranı bölebiliriz */}
